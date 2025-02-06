@@ -12,6 +12,7 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
+      alignItems={"start"}
     >
       <GridItem area="nav">
         <Navbar />
