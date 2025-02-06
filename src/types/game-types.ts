@@ -1,9 +1,9 @@
 export interface Game {
   id: number;
   name: string;
-  released: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
 
 export interface Platform {
