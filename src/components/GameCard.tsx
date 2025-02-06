@@ -8,9 +8,8 @@ interface Prop {
   game: Game;
 }
 const GameCard = ({ game }: Prop) => {
-  console.log("Cropped url", getCropedImageUrl(game.background_image));
   return (
-    <Card.Root borderRadius={20} maxW={"sm"} overflow={"hidden"}>
+    <Card.Root width="300px" borderRadius={20} maxW={"sm"} overflow={"hidden"}>
       <Image src={getCropedImageUrl(game.background_image)}></Image>
       <CardBody>
         <Heading fontSize={"2xl"}>{game.name}</Heading>
