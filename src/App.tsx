@@ -13,17 +13,22 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
-      alignItems={"start"}
+      templateColumns={
+        {
+          base: "1fr",
+          lg: "200px 1fr"
+        }
+      }
     >
       <GridItem area="nav">
         <Navbar />
       </GridItem>
       <Show when={isLargeScreen}>
-        <GridItem area="aside">
+        <GridItem area="aside" paddingX={5}>
           <GenreList />
         </GridItem>
       </Show>
-      <GridItem area="main">
+      <GridItem area="main" justifyItems={"center"}>
         <GameGrid />
       </GridItem>
     </Grid>
