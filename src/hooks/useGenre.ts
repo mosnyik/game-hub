@@ -1,18 +1,8 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
-
-interface Genre {
-  id: number;
-  name: string;
-  slug: string;
-  game_count: number;
-  image_background: string;
-}
-interface FetchGenreResponse {
-  conut: number;
-  results: Genre[];
-}
+import { FetchGenreResponse } from "../types/axios-types";
+import { Genre } from "../types/game-types";
 
 const useGenre = () => {
   const [genre, setGenre] = useState<Genre[]>([]);
