@@ -6,8 +6,9 @@ import { Genre } from "../types/game-types";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, error, isLoading } = useGenre();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
@@ -29,6 +30,7 @@ const GenreList = ({ onSelectGenre }: Props) => {
               />
               <Button
                 fontSize={"lg"}
+                fontWeight={genre.id == selectedGenre?.id ? "bold" :""}
                 border="none"
                 background="none"
                 color="inherit"
