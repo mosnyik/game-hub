@@ -1,13 +1,6 @@
-import { Game, Genre } from "./game-types";
-
-export interface FetchGamesResponse {
+export interface FetchResponse<T> {
   count: number;
   next?: string;
   previous?: string;
-  results: Array<Game>;
-}
-
-export interface FetchGenreResponse {
-  conut: number;
-  results: Genre[];
+  results: Array<T>;
 }
