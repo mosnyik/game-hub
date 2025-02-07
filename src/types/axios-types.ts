@@ -1,8 +1,6 @@
-import { Game } from "./game-types";
-
-export interface FetchGamesResponse {
+export interface FetchResponse<T> {
   count: number;
   next?: string;
   previous?: string;
-  results: Array<Game>;
+  results: Array<T>;
 }
