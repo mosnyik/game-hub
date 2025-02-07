@@ -1,15 +1,22 @@
-import { HStack, Image, List, Text } from "@chakra-ui/react";
+import { Button, HStack, Image, List, Text } from "@chakra-ui/react";
 import useGenre from "../hooks/useGenre";
 import getCropedImageUrl from "../services/image-url";
 import GenreListSkeleton from "./GenreListSkeleton";
+import { Genre } from "../types/game-types";
 
-const GenreList = () => {
+interface Props {
+  onSelectGenre: (genre: Genre) => void;
+}
+const GenreList = ({ onSelectGenre }: Props) => {
   const { data, error, isLoading } = useGenre();
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <>
-      {error && <Text>{error}</Text>}
-      <List.Root as='ul' variant="plain" >
-        {isLoading && !error && <GenreListSkeleton />}
+      {error && <Text> </Text>}
+      <List.Root as="ul" variant="plain">
+        {isLoading &&
+          !error &&
+          skeletons.map(() => <GenreListSkeleton />)}
         {data.map((genre) => (
           <List.Item key={genre.id}>
             <HStack>
@@ -20,7 +27,18 @@ const GenreList = () => {
                 borderRadius={"10px"}
                 marginBottom={"7px"}
               />
-              <Text fontSize={'lg'}>{genre.name}</Text>
+              <Button
+                fontSize={"lg"}
+                border="none"
+                background="none"
+                color="inherit"
+                _focus={{ textDecoration: "underline", color: "blue" }}
+                onClick={() => {
+                  onSelectGenre(genre);
+                }}
+              >
+                {genre.name}
+              </Button>
             </HStack>
           </List.Item>
         ))}

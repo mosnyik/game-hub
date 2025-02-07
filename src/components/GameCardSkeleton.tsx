@@ -7,7 +7,7 @@ const GameCardSkeleton = () => {
       <Skeleton height="200px" />
       <SkeletonText noOfLines={2} />
       <CardBody>
-        <HStack justifyContent={"space-between"} margin={1}>
+        <HStack justifyContent={"space-between"}>
           <Skeleton height="6" width={"100px"}></Skeleton>
           <Skeleton height="6" width={"30px"}></Skeleton>
         </HStack>
