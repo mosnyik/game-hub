@@ -1,4 +1,4 @@
-import { Game, GameQuery} from "../types/game-types";
+import { Game, GameQuery } from "../types/game-types";
 import useData from "./useData";
 
 const useGame = (gameQuery: GameQuery) =>
@@ -8,6 +8,7 @@ const useGame = (gameQuery: GameQuery) =>
       params: {
         genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder,
       },
     },
     [gameQuery]

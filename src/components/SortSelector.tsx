@@ -7,35 +7,52 @@ import {
   MenuTrigger,
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-import PlatformSelectorSkeleton from "./PlatformSelectorSkeleton";
 
-const SortSelector = () => {
-  //  const { data, error, isLoading } = usePlatforms();
+interface Props {
+  onSelectSortOrder: (sortOrder: string) => void;
+  selectedSortOrder: string;
+}
+const SortSelector = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
+  const sortOrders = [
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release date" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average rating" },
+  ];
 
-  //  if (error) return null;
+  const currentSortOrder = sortOrders.find(
+    (order) => order.value === selectedSortOrder
+  );
   return (
     <MenuRoot>
       <MenuTrigger asChild>
         <Button variant="outline" size="sm" marginBottom={1}>
           <HStack>
-            {/* {selectedPlatform ? selectedPlatform.name : <span>Platforms</span>} */}
-            Order By: Relevance
+            {<span> Order By: {currentSortOrder?.label || "Relevance"} </span>}
             <BsChevronDown />
           </HStack>
         </Button>
       </MenuTrigger>
-      <MenuContent position="relative" zIndex="10" borderRadius={"5px"}>
+      <MenuContent
+        borderRadius={"5px"}
+        zIndex="10"
+        position="absolute"
+        top="4.5%"
+        left="330px"
+        boxShadow="lg"
+      >
         {/* {isLoading && <PlatformSelectorSkeleton />}  */}
-        {/* {data.map((platform) => (
-         <MenuItem
-           value={platform.name}
-           key={platform.id}
-           onClick={() => onSelectPlatform(platform)}
-         >
-           {platform.name}
-         </MenuItem>
-       ))} */}
-        <MenuItem value={"relevance"}>Relevance</MenuItem>
+        {sortOrders.map((order) => (
+          <MenuItem
+            value={order.value}
+            key={order.value}
+            onClick={() => onSelectSortOrder(order.value)}
+          >
+            {order.label}
+          </MenuItem>
+        ))}
       </MenuContent>
     </MenuRoot>
   );
