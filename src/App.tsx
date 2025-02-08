@@ -32,7 +32,9 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <Navbar />
+        <Navbar
+          onSearch={(searchTerm) => setGameQuery({ ...gameQuery, searchTerm })}
+        />
       </GridItem>
       <Show when={isLargeScreen}>
         <GridItem area="aside" paddingX={5} justifyItems={"start"}>
@@ -47,7 +49,7 @@ function App() {
       </Show>
       <GridItem area="main" justifyItems={"start"}>
         <Flex marginBottom={"4px"} justifyContent="space-between">
-          <Box marginRight ={3}>
+          <Box marginRight={3}>
             <PlatformSelector
               selectedPlatform={gameQuery.platform}
               onSelectPlatform={(platform) =>
