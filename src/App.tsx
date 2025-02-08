@@ -10,12 +10,15 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-import { Genre } from "./types/game-types";
+import { Genre, Platform } from "./types/game-types";
 import PlatformSelector from "./components/PlatformSelector";
 
 function App() {
   const isLargeScreen = useBreakpointValue({ base: false, lg: true });
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
 
   return (
     <Grid
@@ -32,7 +35,7 @@ function App() {
         <Navbar />
       </GridItem>
       <Show when={isLargeScreen}>
-        <GridItem area="aside" paddingX={5} justifyItems="start">
+        <GridItem area="aside" paddingX={5} justifyItems={"start"}>
           <Text fontSize={"2xl"} fontWeight={"bold"}>
             Genre
           </Text>
@@ -42,12 +45,15 @@ function App() {
           />
         </GridItem>
       </Show>
-      <GridItem
-        area="main"
-        justifyItems={"start"}
-      >
-        <PlatformSelector />
-        <GameGrid selectedGenre={selectedGenre} />
+      <GridItem area="main" justifyItems={"start"}>
+        <PlatformSelector
+          selectedPlatform={selectedPlatform}
+          onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+        />
+        <GameGrid
+          selectedGenre={selectedGenre}
+          selectedPlatform={selectedPlatform}
+        />
       </GridItem>
     </Grid>
   );
