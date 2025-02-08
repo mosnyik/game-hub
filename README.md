@@ -52,6 +52,7 @@ yarn dev
 ![Select platform](public/screenshots/select-genre&platform.png)
 ![Sort by relevence](public/screenshots/sort-by-relevance.png)
 
+
 ## 🏗️ Project Structure
 ```
 /game-hub
