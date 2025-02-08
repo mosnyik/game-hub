@@ -5,7 +5,8 @@ import {
   Show,
   useBreakpointValue,
   Text,
-  HStack,
+  Flex,
+  Box,
 } from "@chakra-ui/react";
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -45,13 +46,15 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main" justifyItems={"start"}>
-        <HStack marginBottom={"4px"}>
-          <PlatformSelector
-            selectedPlatform={gameQuery.platform}
-            onSelectPlatform={(platform) =>
-              setGameQuery({ ...gameQuery, platform })
-            }
-          />
+        <Flex marginBottom={"4px"} justifyContent="space-between">
+          <Box marginRight ={3}>
+            <PlatformSelector
+              selectedPlatform={gameQuery.platform}
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platform })
+              }
+            />
+          </Box>
 
           <SortSelector
             selectedSortOrder={gameQuery.sortOrder}
@@ -59,7 +62,7 @@ function App() {
               setGameQuery({ ...gameQuery, sortOrder })
             }
           />
-        </HStack>
+        </Flex>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>

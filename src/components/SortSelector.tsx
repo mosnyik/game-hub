@@ -39,9 +39,7 @@ const SortSelector = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
         borderRadius={"5px"}
         zIndex="10"
         position="absolute"
-        top="4.5%"
-        left="330px"
-        boxShadow="lg"
+       
       >
         {/* {isLoading && <PlatformSelectorSkeleton />}  */}
         {sortOrders.map((order) => (

@@ -30,14 +30,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
           </HStack>
         </Button>
       </MenuTrigger>
-      <MenuContent
-        borderRadius={"5px"}
-        zIndex="10" 
-        position="absolute" 
-        top="4.5%" 
-        left="200px"
-        boxShadow="lg"
-      >
+      <MenuContent borderRadius={"5px"} zIndex="10" position="absolute">
         {isLoading && <PlatformSelectorSkeleton />}
         {data.map((platform) => (
           <MenuItem
