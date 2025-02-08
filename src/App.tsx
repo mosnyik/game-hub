@@ -6,7 +6,6 @@ import {
   useBreakpointValue,
   Flex,
   Box,
-  Heading,
 } from "@chakra-ui/react";
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -39,9 +38,7 @@ function App() {
       </GridItem>
       <Show when={isLargeScreen}>
         <GridItem area="aside" paddingX={5} justifyItems={"start"}>
-          <Heading as={"h1"} marginY={5} fontSize={"5xl"} >
-            Genre
-          </Heading>
+          
           <GenreList
             selectedGenre={gameQuery.genre}
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
