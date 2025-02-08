@@ -1,10 +1,11 @@
-const getCropedImageUrl = (url : string)=>{
-    const target = "media/";
+import emptyPic from "../assets/no-pic.webp";
+const getCropedImageUrl = (url: string) => {
+  if (!url) return emptyPic;
+  const target = "media/";
 
-    const index = url.indexOf(target) + target.length;
+  const index = url.indexOf(target) + target.length;
 
-    return url.slice(0, index) + 'crop/600/400/' + url.slice( index);
-
-}
+  return url.slice(0, index) + "crop/600/400/" + url.slice(index);
+};
 
 export default getCropedImageUrl;

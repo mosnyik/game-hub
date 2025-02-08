@@ -4,6 +4,7 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  rating_top: number;
 }
 
 export interface Platform {
@@ -23,4 +24,6 @@ export interface Genre {
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
+  searchTerm: string;
 }
