@@ -4,9 +4,9 @@ import {
   GridItem,
   Show,
   useBreakpointValue,
-  Text,
   Flex,
   Box,
+  Heading,
 } from "@chakra-ui/react";
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -15,6 +15,7 @@ import GenreList from "./components/GenreList";
 import { GameQuery } from "./types/game-types";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 function App() {
   const isLargeScreen = useBreakpointValue({ base: false, lg: true });
@@ -38,9 +39,9 @@ function App() {
       </GridItem>
       <Show when={isLargeScreen}>
         <GridItem area="aside" paddingX={5} justifyItems={"start"}>
-          <Text fontSize={"2xl"} fontWeight={"bold"}>
+          <Heading as={"h1"} marginY={5} fontSize={"5xl"} >
             Genre
-          </Text>
+          </Heading>
           <GenreList
             selectedGenre={gameQuery.genre}
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
@@ -48,6 +49,7 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main" justifyItems={"start"}>
+        <GameHeading gameQuery={gameQuery} />
         <Flex marginBottom={"4px"} justifyContent="space-between">
           <Box marginRight={3}>
             <PlatformSelector
