@@ -19,3 +19,8 @@ export interface Genre {
   game_count: number;
   image_background: string;
 }
+
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
