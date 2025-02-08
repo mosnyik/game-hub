@@ -17,7 +17,7 @@ const PlatformSelector = () => {
   return (
     <MenuRoot>
       <MenuTrigger asChild>
-        <Button  size="sm" marginBottom={1}>
+        <Button variant="outline" size="sm" marginBottom={1}>
           <HStack>
             <span>Platforms</span>
             <BsChevronDown />
