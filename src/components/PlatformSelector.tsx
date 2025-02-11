@@ -32,7 +32,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
       </MenuTrigger>
       <MenuContent borderRadius={"5px"} zIndex="10" position="absolute">
         {isLoading && <PlatformSelectorSkeleton />}
-        {data.map((platform) => (
+        {data?.results.map((platform) => (
           <MenuItem
             value={platform.name}
             key={platform.id}
