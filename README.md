@@ -20,8 +20,8 @@ The **Game Hub** is a web application that allows users to search for games usin
 ## 🔧 Installation & Setup
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/mosnyik/game-hub.git
-cd game-hub
+git clone https://github.com/mosnyik/game-port
+cd game-port
 ```
 
 ### 2️⃣ Install Dependencies

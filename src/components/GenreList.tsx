@@ -19,7 +19,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
       {error && <Text> </Text>}
       <List.Root as="ul" variant="plain">
         {isLoading && !error && skeletons.map(() => <GenreListSkeleton />)}
-        {data.map((genre) => (
+        {data?.results.map((genre) => ( 
           <List.Item key={genre.id}>
             <HStack spaceX="1px" alignItems="center">
               <Image
